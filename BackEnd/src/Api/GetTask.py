@@ -1,5 +1,5 @@
 ﻿from flask import Blueprint, jsonify
-from src.todo.logic import get_task
+from BackEnd.src.todo.logic import get_task
 
 get_task_bp = Blueprint('get_task', __name__)
 

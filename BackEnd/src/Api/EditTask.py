@@ -1,5 +1,5 @@
 ﻿from flask import Blueprint, request, jsonify
-from src.todo.logic import edit_task
+from BackEnd.src.todo.logic import edit_task
 
 edit_task_bp = Blueprint('edit_task', __name__)
 

@@ -1,6 +1,6 @@
 ﻿from flask import Blueprint, request, jsonify
 from flask_cors import cross_origin
-from src.todo.logic import add_task
+from BackEnd.src.todo.logic import add_task
 
 add_task_bp = Blueprint('add_task', __name__, url_prefix='/tasks')
 
