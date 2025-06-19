@@ -1,0 +1,32 @@
+﻿name: Backend CI
+
+on:
+  push:
+    branches: [ backend ]
+  pull_request:
+    branches: [ backend ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd BackEnd/src
+          python -m pip install --upgrade pip
+          pip install flask flask-cors || echo "skipping requirements.txt"
+
+      - name: Lint with flake8
+        run: |
+          cd BackEnd/src
+          pip install flake8
+          flake8 . || echo "flake8 found issues"
